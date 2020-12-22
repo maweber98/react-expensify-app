@@ -8,7 +8,6 @@ const Header = () => (
         <Link className="header__title" to="/">
           <h1>Expensify</h1>
         </Link>
-        <NavLink to="/create" activeClassName="is-active">Create Expense</NavLink>
       </div>
     </div>
   </header>
