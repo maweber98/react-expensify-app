@@ -3,8 +3,8 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-// process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-process.env.NODE_ENV = 'test';
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+// process.env.NODE_ENV = 'test';
 
 if (process.env.NODE_ENV === 'test') {
     console.log('process.env.NODE_ENV TEST', process.env.NODE_ENV);
@@ -19,7 +19,7 @@ module.exports = (env) => {
     const CSSExtract = new ExtractTextPlugin('styles.css');
     console.log('env', env);
     return {
-        entry: './src/app.js',
+        entry: ['babel-polyfill', './src/app.js'],
         output: {
             path: path.join(__dirname, 'public', 'dist'),
             filename: 'bundle.js'
